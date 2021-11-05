@@ -8,6 +8,7 @@ public class DriverManagerFactory {
             case CHROME -> new ChromeDriverManager();
             case FIREFOX -> new FirefoxDriverManager();
             case EDGE -> new EdgeDriverManager();
+            case OPERA -> new OperaDriverManager();
         };
     }
 }
