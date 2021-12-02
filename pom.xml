@@ -16,8 +16,8 @@
 
         <!-- Testing framework versions -->
         <maven.cucumber.version>6.11.0</maven.cucumber.version>
-        <maven.selenium.version>3.141.59</maven.selenium.version>
-        <maven.webdriver.version>5.0.3</maven.webdriver.version>
+        <selenium.version>3.141.59</selenium.version>
+        <webDriverManager.version>5.0.3</webDriverManager.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
 
         <!-- Tools versions-->
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>${maven.webdriver.version}</version>
+            <version>${webDriverManager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -55,6 +55,13 @@
             <version>${org.hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit4</artifactId>
+            <version>2.16.1</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 

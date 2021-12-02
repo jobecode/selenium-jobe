@@ -1,8 +1,6 @@
-package tests;
+package driverManager;
 
 
-import driverManager.DriverManagerFactory;
-import driverManager.DriverType;
 import lombok.extern.java.Log;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -10,29 +8,28 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 @Log
-public class TestBase {
+public class Hooks {
 
-    private static final int TIME_OUT_IMPLICIT = 5000;
+    private static final int TIME_OUT_IMPLICIT = 10000;
 
-    WebDriver driver;
+    public WebDriver driver;
 
-    @BeforeSuite
+    @BeforeMethod
     public void setUp() {
         driver = DriverManagerFactory.getManager(DriverType.CHROME).getDriver();
         driver.manage().timeouts().implicitlyWait(TIME_OUT_IMPLICIT, TimeUnit.MILLISECONDS);
     }
 
-    @AfterSuite
+    @AfterMethod
     public void tearDown() {
-        driver.quit();
+        driver.close();
     }
 
     @AfterMethod

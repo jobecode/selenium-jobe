@@ -16,10 +16,11 @@ public class ChromeDriverManager extends DriverManager {
 
     private ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--disable-notifications");
-        chromeOptions.addArguments("--disable-infobars");
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        chromeOptions.addArguments("--disable-notifications")
+                .addArguments("--ignore-certificate-errors")
+                .setPageLoadStrategy(PageLoadStrategy.NORMAL);
         return chromeOptions;
+
     }
 
 }
